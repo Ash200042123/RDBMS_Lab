@@ -1,0 +1,28 @@
+Franchise: franchise_name
+Customer: customer_id(pk),customer_name, franchise_name(fk)
+Branch: franchise_name(fk), branch_id(pk)
+Chefs: branch_id(fk), chef_id(pk), menu_id(fk)
+Menu: menu_name, menu_id(pk), item_id(fk), chef_id(fk),franchise_id(fk),cuisine, main_ingredients, price, calorie_count
+Item: item_id(pk),cuisine_name
+preffered_cuisine: pref_id(pk),customer_id(fk), item_id(fk)
+Rating: rating_id(pk),customer_id(fk),rating, item_id(fk) 
+franchise_customer: franchise_name, customer_id
+chefs_item: chef_id,menu_id
+franchise_menu : franchise_name, menu_id 
+order: order_id(pk), customer_id(fk), item_id(fk)
+
+
+
+
+franchise->branch - one to many;
+franchise->customer - many to many;
+branch->chef - one to many;
+chefs->item - many to many;
+chefs->menu - one to many;
+franchise->menu - many to many;
+customer->preffered_cuisine - one to many;
+customer->rating - one to many;
+
+
+
+

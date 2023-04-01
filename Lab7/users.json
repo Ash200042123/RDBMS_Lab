@@ -1,0 +1,79 @@
+[{
+  "_id": {
+    "$oid": "64188a1624eb516902013868"
+  },
+  "name": "Ashfaq",
+  "email": "ashfaq@iut-dhaka.edu",
+  "password": "943655"
+},{
+  "_id": {
+    "$oid": "64188a8324eb516902013869"
+  },
+  "name": "Ridun",
+  "email": "ridun@gmail.com",
+  "password": "rid123",
+  "phone_no": "01981234111",
+  "date_of_birth": {
+    "$date": "2001-12-19T00:00:00.000Z"
+  },
+  "address": "Dhaka",
+  "profile_creation_date": {
+    "$date": "2022-02-03T00:00:00.000Z"
+  },
+  "hobbies": [
+    "playing",
+    "photography",
+    "eating"
+  ],
+  "followers": [
+    "Wasif",
+    "Adon",
+    "Abrar"
+  ]
+},{
+  "_id": {
+    "$oid": "64188a8324eb51690201386a"
+  },
+  "name": "Shuvro",
+  "email": "shuvro@gmail.com",
+  "password": "shuvro12",
+  "phone_no": "0162378328",
+  "date_of_birth": {
+    "$date": "2001-01-09T00:00:00.000Z"
+  },
+  "address": "Dhaka",
+  "profile_creation_date": {
+    "$date": "2022-04-18T00:00:00.000Z"
+  },
+  "hobbies": [
+    "coding",
+    "travelling"
+  ],
+  "followers": [
+    "Adon",
+    "Abrar",
+    "Wasif",
+    "Nowrid"
+  ]
+},{
+  "_id": {
+    "$oid": "64188aab24eb51690201386b"
+  },
+  "name": "Shoyeb",
+  "email": "shoyeb@gmail.com",
+  "password": "shoyeb123",
+  "phone_no": "01714986544",
+  "date_of_birth": {
+    "$date": "1990-08-29T00:00:00.000Z"
+  },
+  "address": "Naogaon",
+  "profile_creation_date": {
+    "$date": "2022-06-04T00:00:00.000Z"
+  },
+  "working_status": "Unemployeed",
+  "followers": [
+    "Abrar",
+    "Adon",
+    "Wasif"
+  ]
+}]

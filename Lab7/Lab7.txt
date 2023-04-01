@@ -1,0 +1,119 @@
+use socialMedia;
+
+db.posts.deleteMany({});
+db.users.deleteMany({});
+
+
+//2.A
+db.users.insertOne({
+  "name": "Ashfaq",
+  "email": "ashfaq@iut-dhaka.edu",
+  "password": "943655"
+});
+
+//2.B
+db.users.insertMany([
+   {
+   "name": "Ridun",
+   "email": "ridun@gmail.com",
+   "password": "rid123",
+   "phone_no": "01981234111",
+   "date_of_birth": ISODate("2001-12-19"),
+   "address": "Dhaka",
+   "profile_creation_date": ISODate("2022-02-03"),
+   "hobbies": ["playing", "photography", "eating"]
+   },
+  {
+    "name": "Shuvro",
+    "email": "shuvro@gmail.com",
+    "password": "shuvro12",
+    "phone_no": "0162378328",
+    "date_of_birth": ISODate("2001-01-09"),
+    "address": "Dhaka",
+    "profile_creation_date": ISODate("2022-04-18"),
+    "hobbies": ["coding", "travelling"]
+  }]
+);
+
+
+//2.C
+db.users.insertOne({
+  "name": "Shoyeb",
+  "email": "shoyeb@gmail.com",
+  "password": "shoyeb123",
+  "phone_no": "01714986544",
+  "date_of_birth": ISODate("1990-08-29"),
+  "address": "Naogaon",
+  "profile_creation_date": ISODate("2022-06-04"),
+  "working_status": "Unemployeed"
+});
+
+
+//2.D
+db.users.updateOne({ "email": "shuvro@gmail.com" }, { $addToSet: { "followers": "Adon" } });
+db.users.updateOne({ "email": "shoyeb@gmail.com" }, { $addToSet: { "followers": "Abrar" } });
+db.users.updateOne({ "email": "ridun@gmail.com" }, { $addToSet: { "followers": "Wasif" } });
+
+db.users.updateMany(
+  { "email": { $in: ["shuvro@gmail.com", "shoyeb@gmail.com", "ridun@gmail.com"] } },
+  { $addToSet: { "followers": { $each: ["Adon", "Abrar","Wasif"] } } }
+);
+
+db.users.updateMany(
+  { "email": { $in: ["shuvro@gmail.com", "shoyeb@gmail.com"] } },
+  { $addToSet: { "followers": { $each: ["Adon", "Abrar","Wasif"] } } }
+);
+
+//2.E
+db.posts.insertMany([
+  {
+    "content": "A",
+    "creation_time": ISODate("2022-03-21T10:00:00Z"),
+    "user_id": "a@gmail.com",
+    "likes": ["shuvro@gmail.com","muaz@gmail.com"],
+  },
+  {
+    "content": "B",
+    "creation_time": ISODate("2022-03-21T10:00:00Z"),
+    "user_id": "b@gmail.com",
+    "likes": ["shoyeb@gmail.com","ridun@gmail.com"],
+  },
+  {
+    "content": "C",
+    "creation_time": new Date(),
+    "user_id": "c@gmail.com",
+    "likes": ["ridun@gmail.com","tamzid@gmail.com"],
+  },
+ ]);
+
+// 2.F
+db.posts.updateMany(
+    {"user_id":{ $in: ["a@gmail.com", "b@gmail.com", "c@gmail.com"] }},
+    {$addToSet: { "comments": { $each: ["wow", "done","pending"] } }}
+);
+
+db.posts.updateMany(
+    {"user_id":"a@gmail.com"},
+    {$set : {"comments":"processing","comments":"done"}}
+);
+
+
+
+//3.A
+db.posts.find().sort({creation_time:-1});
+
+//3.B
+db.posts.find({"creation_time":{$gt:new Date(Date.now() - 24*60*60*1000)}});
+
+//3.C
+
+db.users.find({followers: {$gt: 3}});
+
+
+//3.D
+db.users.find({following: {$gt: 3}});
+
+
+
+
+
